@@ -1,0 +1,30 @@
+web:
+  image: wintercircle/wc-api:dev
+  command: bash -c "./manage.py collectstatic --noinput && ./manage.py migrate --noinput && uwsgi --http :8000 --mount /api=project/wsgi.py --manage-script-name"
+  ports:
+  - 8000
+  links:
+  - db
+  - queue
+  labels:
+    io.rancher.container.pull_image: always
+  environment:
+    DJANGO_SETTINGS_MODULE: project.settings.dev
+  volumes:
+  - /data/dev.wintercircle.co/project/secrets:/app/project/secrets
+worker:
+  image: wintercircle/wc-api:dev
+  command: celery -A project worker -l WARN
+  links:
+    - queue
+  labels:
+    io.rancher.container.pull_image: always
+  environment:
+    DJANGO_SETTINGS_MODULE: project.settings.dev
+    C_FORCE_ROOT: 1
+  volumes:
+  - /data/dev.wintercircle.co/project/secrets:/app/project/secrets
+db:
+  image: mdillon/postgis
+queue:
+  image: rabbitmq
