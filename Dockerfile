@@ -1,4 +1,4 @@
-FROM wintercircle/geodrf-alpine:latest
+FROM dangerfarms/geodrf-alpine:latest
 RUN mkdir /app
 WORKDIR /app
 ADD requirements.txt /app/

@@ -64,7 +64,6 @@ dump.rdb
 .lib
 .ipython_history
 .bash_history
-.config/prod/docker-compose.yml.bak
 project/config/extra.py
 .secrets
 

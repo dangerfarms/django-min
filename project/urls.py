@@ -5,22 +5,21 @@ from django.contrib import admin
 
 from project.views import APIRootView
 
-admin.site.site_header = 'Winter Circle'
+
+admin.site.site_header = '{{PROJECT}}'  # Override Admin site title
+
 
 urlpatterns = [
+    # ADMIN
     url(r'^admin/', include(admin.site.urls)),
-]
 
-api_patterns = [
+    # API
     url(r'^$', APIRootView.as_view(), name=APIRootView.URL_NAME),
 ]
 
-urlpatterns += api_patterns
-
-urlpatterns += [
-    url(r'^api-auth/', include('rest_framework.urls',
-                               namespace='rest_framework')),
-]
 
 if settings.DEBUG:
+    urlpatterns += [
+        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    ]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

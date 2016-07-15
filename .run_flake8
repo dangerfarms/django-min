@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -e;
 
 if [ ! -f /.dockerenv ]; then
     echo "This script must be run from inside a docker instance. Run './.shell' to run bash inside the container"
@@ -9,4 +9,6 @@ fi
 flake8 \
     --max-line-length=120    \
     --exclude=*/migrations/* \
-    --max-complexity=13
+    --exclude=project/ \
+    --max-complexity=13 \
+    .
