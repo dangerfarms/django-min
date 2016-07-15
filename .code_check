@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ ! -f /.dockerenv ]; then
     echo "This script must be run from inside a docker instance. Run './.shell' to run bash inside the container"
@@ -6,16 +7,7 @@ if [ ! -f /.dockerenv ]; then
 fi
 
 # flake8
-./.flake8
-if [ $? != 0 ]; then
-  echo "Please fix the errors above and commit again."
-  exit 1
-fi
+./.run_flake8
 
 # tests
-export DJANGO_SETTINGS_MODULE=project.settings.test
-./manage.py test $@
-if [ $? != 0 ]; then
-  echo "Please fix the errors above and commit again."
-  exit 1
-fi
+./.test$@

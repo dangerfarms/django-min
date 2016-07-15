@@ -1,6 +1,6 @@
 # Docker doesn't include buildfile inheritance yet - rubbish. No DRY Dockerfile's for us :-(
 # Do not install dev dependencies
-FROM wintercircle/geodrf-alpine:latest
+FROM dangerfarms/geodrf-alpine:latest
 RUN mkdir /app
 WORKDIR /app
 ADD requirements.txt /app/
