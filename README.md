@@ -1,6 +1,4 @@
-# Form Hero
-
-Create forms easily and integrate with a variety of services
+# {{PROJECT_NAME}}
 
 ## Install
 
