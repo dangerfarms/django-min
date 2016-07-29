@@ -1,7 +1,14 @@
-PROJECT_ISSUE_LABEL=''
-PROJECT_NAME_VERBOSE='DF Finances API'
-PROJECT_MODULE_NAME='df_finances'
-PROJECT_REPO_NAME='df-finances-api'
+echo "PROJECT_ISSUE_LABEL (used for git message prepending e.g. dangerfarms/root-app):"
+read PROJECT_ISSUE_LABEL
+
+echo -e "\nPROJECT_NAME_VERBOSE (appears in admin site):"
+read PROJECT_NAME_VERBOSE
+
+echo -e "\nPROJECT_MODULE_NAME (base module for application to be created):"
+read PROJECT_MODULE_NAME
+
+echo -e "\nPROJECT_REPO_NAME (name of remote repo):"
+read PROJECT_REPO_NAME
 
 
 sed -i.bak "s/PROJECT_ISSUE_LABEL/$PROJECT_ISSUE_LABEL/g" .hooks/commit-msg
