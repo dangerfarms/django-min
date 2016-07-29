@@ -17,6 +17,9 @@ rm .hooks/commit-msg.bak
 sed -i.bak "s/PROJECT_NAME_VERBOSE/$PROJECT_NAME_VERBOSE/g" project/urls.py
 rm project/urls.py.bak
 
+sed -i.bak "s/PROJECT_NAME_VERBOSE/$PROJECT_NAME_VERBOSE/g" README.md
+rm README.md.bak
+
 mkdir -p $PROJECT_MODULE_NAME;
 touch $PROJECT_MODULE_NAME/__init__.py
 
