@@ -3,7 +3,7 @@ api:
   command: ./manage.py runserver 0.0.0.0:8000
   volumes:
     - .:/app
-    - ./.lib:/app/.lib
+    - ./.lib:/root/.local/lib/python3.5/site-packages
     - ./.bash_history:/root/.bash_history
     - ./.ipython_history:/root/.ipython/profile_default/history.sqlite
   ports:

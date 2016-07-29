@@ -6,7 +6,7 @@ from django.contrib import admin
 from project.views import APIRootView
 
 
-admin.site.site_header = '{{PROJECT}}'  # Override Admin site title
+admin.site.site_header = 'PROJECT_NAME_VERBOSE'  # Override Admin site title
 
 
 urlpatterns = [

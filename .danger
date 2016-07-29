@@ -50,18 +50,11 @@ fi
 echo "${RESET}"
 
 
-# =========================================================
-# Step 2: Create helper commands for serve/test/manage/migrate
-# =========================================================
-echo "${INFO}STEP 3: CREATE HELPER COMMANDS"
-echo "${RESET}TODO"
-echo ""
-
 
 # =========================================================
-# Step 3: Setup up images, containers and data volumes
+# Step 2: Setup up images, containers and data volumes
 # =========================================================
-echo "${INFO}STEP 4: Setup project image, containers and any volumes required${RESET}"
+echo "${INFO}STEP 2: Setup project image, containers and any volumes required${RESET}"
 rm -rf .ipython_history .bash_history;
 touch .ipython_history;
 touch .bash_history;
@@ -72,16 +65,16 @@ echo "${RESET}"
 
 
 # =========================================================
-# Step 5: DB setup
+# Step 3: DB setup
 # =========================================================
-echo "${INFO}STEP 5: Setup database ${RESET}"
+echo "${INFO}STEP 3: Setup database ${RESET}"
 ./.bin/migrate
 #TODO: create basic user
 
 # =========================================================
-# Step 6: Adding git hooks to ensure we are awesome developers
+# Step 4: Adding git hooks to ensure we are awesome developers
 # =========================================================
-echo "${INFO}STEP 6: GIT HOOKS${RESET}"
+echo "${INFO}STEP 4: GIT HOOKS${RESET}"
 
 rm -rf .git/hooks;
 ln -s $(pwd)/.hooks .git/hooks
@@ -93,5 +86,5 @@ echo ""
 # =========================================================
 # Step 5: Setting origin master as base
 # =========================================================
-echo "${INFO}STEP 6: SET GIT UPSTREAM${RESET}"
+echo "${INFO}STEP 5: SET GIT UPSTREAM${RESET}"
 git branch --set-upstream-to=origin/development development;
