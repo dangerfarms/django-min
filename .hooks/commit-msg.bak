@@ -12,7 +12,7 @@ if ! [[ $(head -n 1 $1) =~ ^#[0-9]+:[[:space:]][A-Z].* ]]; then
     fi
 fi
 
-COMMIT_MSG_PREFIX=""
+COMMIT_MSG_PREFIX="PROJECT_ISSUE_LABEL"
 if [[ $(head -c 1 $1) =~ ^# ]]; then
   echo "Prepending commit message with $COMMIT_MSG_PREFIX";
   echo -n $COMMIT_MSG_PREFIX | cat - $1 > /tmp/commit-msg-tmp && mv /tmp/commit-msg-tmp $1
