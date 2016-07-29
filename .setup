@@ -1,0 +1,19 @@
+PROJECT_ISSUE_LABEL=''
+PROJECT_NAME_VERBOSE='DF Finances API'
+PROJECT_MODULE_NAME='df_finances'
+PROJECT_REPO_NAME='df-finances-api'
+
+
+sed -i.bak "s/PROJECT_ISSUE_LABEL/$PROJECT_ISSUE_LABEL/g" .hooks/commit-msg
+rm .hooks/commit-msg.bak
+
+sed -i.bak "s/PROJECT_NAME_VERBOSE/$PROJECT_NAME_VERBOSE/g" project/urls.py
+rm project/urls.py.bak
+
+mkdir -p $PROJECT_MODULE_NAME;
+touch $PROJECT_MODULE_NAME/__init__.py
+#git add .
+#git commit -m "Initial Commit"
+#git checkout -b development
+#git remote add origin git@github.com:dangerfarms/$PROJECT_REPO_NAME.git
+#git push --all origin
