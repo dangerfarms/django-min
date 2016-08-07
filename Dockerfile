@@ -1,4 +1,4 @@
-FROM dangerfarms/geodrf-alpine:1.0.0
+FROM dangerfarms/geodrf-alpine:latest
 RUN mkdir /app
 WORKDIR /app
 ADD requirements.txt /app/
