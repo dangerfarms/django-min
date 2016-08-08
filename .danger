@@ -59,7 +59,6 @@ rm -rf .ipython_history .bash_history;
 touch .ipython_history;
 touch .bash_history;
 ./.bin/buildall
-./.bin/requirements
 echo "Complete"
 echo "${RESET}"
 
